@@ -1,0 +1,66 @@
+package:
+  name: peachpy
+  version: "0.2.0"
+
+source:
+  fn: PeachPy-master.zip
+  url: https://github.com/Maratyszcza/PeachPy/archive/master.zip
+  md5: e07f11cb3553589c7af1c9ed476573ce
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - peachpy = peachpy:main
+    #
+    # Would create an entry point called peachpy that calls peachpy.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - enum34
+    - opcodes ==0.2.6
+    - six
+
+  run:
+    - python
+    - six
+    - opcodes ==0.2.6
+    - enum34
+test:
+  # Python imports
+  imports:
+    - peachpy
+    - peachpy.x86_64
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/MDukhan/peachpy/
+  license: BSD License
+  summary: 'Portable Efficient Assembly Codegen in Higher-level Python'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
